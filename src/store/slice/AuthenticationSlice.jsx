@@ -5,7 +5,7 @@ const initialState = {
     user: JSON.parse(localStorage.getItem('user')) || null,
   };
 
-export const authSlice = createSlice({
+export const AuthenticationSlice = createSlice({
     name: 'auth',
     initialState,
     reducers : {
@@ -35,5 +35,5 @@ export const authSlice = createSlice({
     }
 })
 
-export const { registerUser, loginUser, logoutUser } = authSlice.actions;
-export default authSlice.reducer;
+export const { registerUser, loginUser, logoutUser } = AuthenticationSlice.actions;
+export default AuthenticationSlice.reducer;
