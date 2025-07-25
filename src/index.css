@@ -2,10 +2,7 @@
   font-family: "garnet";
   src: url("/fonts/Garnett-Regular.ttf");
 }
-@font-face {
-  font-family: "roman";
-  src: url("/fonts/Roman.ttf");
-}
+
 
 @import "tailwindcss";
 
