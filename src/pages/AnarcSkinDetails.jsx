@@ -1,19 +1,37 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import ImageCarousel from "../components/ImageCarousel";
 import Footer from "../components/Footer";
 import Specs from "../components/Specs";
+import { asyncGetProduct } from "../store/actions/ProductAction";
+import { useEffect } from "react";
 
 const AnarcSkinDetails = () => {
+  const dispatch = useDispatch()
     const navigate = useNavigate()
   const params = useParams();
-  const product = useSelector((state) => state.product.data);
+  const product = useSelector((state) =>  state.product.data);
   console.log(product);
 
+  useEffect(() => {
+    if (!product || product.length === 0) {
+      dispatch(asyncGetProduct());
+    }
+  }, []);
+
   console.log(params.title);
+
+  
   const title = params.title;
   const targetProduct = product.find((prod) => prod.title == title);
   console.log(targetProduct);
+  if (!targetProduct) {
+    return (
+      <div className="text-center text-xl font-semibold mt-20 text-red-500">
+         loading...
+      </div>
+    )}
+  
   const images = targetProduct.images.map((imgObj) => imgObj.src);
   console.log(images);
 
