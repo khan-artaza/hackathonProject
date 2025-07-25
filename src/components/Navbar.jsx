@@ -5,12 +5,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useSelector, useDispatch } from "react-redux";
+import { logoutUser } from "../store/slice/AuthenticationSlice";
 
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 
 const Navbar = () => {
+  const user = useSelector((state) => state.auth.user);
+const dispatch = useDispatch();
+
+const handleLogout = () => {
+  dispatch(logoutUser());
+};
+
   const navbarRef = useRef()
   const logoRef = useRef()
   const textRef = useRef()
@@ -58,7 +67,25 @@ tl1.to(textRef.current,{
         <NavLink onClick={()=>setToggle(false)} className={(e)=>e.isActive? "px-4 text-[#ed4c22] py-1 rounded-3xl" : ""} to={"/anarc-watch"}>Anarc Watch</NavLink>
         <NavLink onClick={()=>setToggle(false)} className={(e)=>e.isActive? "px-4 text-[#ed4c22] py-1 rounded-3xl" : ""} to={"/anarcSkin"}>Anarc Skin</NavLink>
         <NavLink onClick={()=>setToggle(false)} className={(e)=>e.isActive? "px-4 text-[#ed4c22] py-1 rounded-3xl" : ""} to={"/our-story"}>Our Story</NavLink>
-        <NavLink onClick={()=>setToggle(false)} className={(e)=>e.isActive? "px-4 text-[#ed4c22] py-1 rounded-3xl" : ""} to={"/login"}>Login</NavLink>
+        {user ? (
+  <button
+    onClick={handleLogout}
+    className="px-4 text-white bg-[#ed4c22] font-semibold py-1 rounded-3xl"
+  >
+    Logout
+  </button>
+) : (
+  <NavLink
+    onClick={() => setToggle(false)}
+    className={(e) =>
+      e.isActive ? 'px-4 text-[#ed4c22] py-1 rounded-3xl' : ''
+    }
+    to="/login"
+  >
+    Login
+  </NavLink>
+)}
+
       </div>
       </div>
       
