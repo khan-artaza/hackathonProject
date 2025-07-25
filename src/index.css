@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "garnet";
+  src: url("/fonts/Garnett-Regular.ttf");
+}
+@font-face {
+  font-family: "roman";
+  src: url("/fonts/Roman.ttf");
+}
+
+@import "tailwindcss";
+
+*{
+  box-sizing: border-box;
+}
+
+html,body{
+  width: 100%;
+  height: 100%;
+  font-family: "garnet";
+  color: white;
+}
