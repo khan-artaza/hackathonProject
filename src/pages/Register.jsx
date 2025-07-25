@@ -1,10 +1,13 @@
 
 import React from 'react'
 import { useForm } from "react-hook-form"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { registerUser } from '../store/slice/authSlice'
+import { useDispatch } from 'react-redux'
 
 const Register = () => {
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -15,7 +18,9 @@ const Register = () => {
 
   function submitHandler(data){
     console.log(data);
+    dispatch(registerUser(data));
     reset()
+
   }
 
   return (

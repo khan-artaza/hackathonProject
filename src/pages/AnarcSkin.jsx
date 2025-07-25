@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 import { asyncGetProduct } from '../store/actions/ProductAction'
-
+import FadeContent from '../reactbits/FadeContent/FadeContent'
 
 const AnarcSkin = () => {
  const dispatch = useDispatch()
@@ -15,7 +15,8 @@ const AnarcSkin = () => {
 
   const render = product.map((product)=> {
     return (
-      <Link to={`/anarcskindetail/${product.title}`}>
+      <FadeContent blur={true} duration={300} easing="ease-out" initialOpacity={0}>
+   <Link to={`/anarcskindetail/${product.title}`}>
       <div className="skinCard shadow-md rounded border-zinc-200 rounded-b-3xl w-full">
           <img src={product.images[0].src} alt="" />
           <div className='px-4 bg-zinc-100 py-1 '>
@@ -24,6 +25,8 @@ const AnarcSkin = () => {
           </div>
       </div>
       </Link>
+</FadeContent>
+     
     )
   })
 

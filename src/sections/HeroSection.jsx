@@ -3,6 +3,7 @@ import Carousel from "../reactbits/Carousel/CarouselVid";
 import ChaoticCards from "../components/ChaoticCards";
 import Footer from "../components/Footer";
 import SplitText from "../reactbits/SplitText/SplitText";
+import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     <>
@@ -59,9 +60,10 @@ const HeroSection = () => {
             textAlign="start"
           />
 
-          <button className="text-zinc-800 block font-semibold bg-white px-4 py-2 rounded-3xl mt-2 md:mt-4 md:text-xl">
+          <Link to={"/anarc-watch"}><button className="text-zinc-800 block font-semibold bg-white px-4 py-2 rounded-3xl mt-2 md:mt-4 md:text-xl cursor-pointer hover:scale-105 transition-all duration-300">
             Buy Now
-          </button>
+          </button></Link>
+          
         </div>
       </section>
       <section className="w-full z-20 bg-white text-black absolute rounded-3xl top-[800px] lg:top-[900px] pt-12">

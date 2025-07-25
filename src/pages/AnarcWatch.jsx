@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { asynGetAnarcWatch } from "../store/actions/AnarcWatchAction";
 import Footer from "../components/Footer";
 import ImageCarousel from "../components/ImageCarousel";
-import FeatCard from "../components/featCard";
+import FeatCard from "../components/FeatCard";
 import AutoCaraousel from "../components/AutoCaraousel";
 import MoreFor from "../components/MoreFor";
 import SplitText from "../reactbits/SplitText/SplitText"
@@ -39,6 +39,12 @@ console.log(variants);
       console.log("error");
     }
   }
+
+  useEffect(() => {
+    if (anarcWatch) {
+      setVariants(anarcWatch.variants[0]);
+    }
+  }, [anarcWatch]);
 
   useEffect(()=>{
     variantsHandler()
@@ -94,7 +100,7 @@ console.log(variants);
       <div className="price px-6 md:px-10">
         
       <h3 className="text-black text-3xl opacity-75 font-bold">
-            ₹ {Math.floor(variants.price)}
+            ₹ {variants?.price ? Math.floor(variants.price) : "Loading..."}
             </h3>
             <p className="text-black text-sm opacity-60 font-semibold">MRP (inclusive of all taxes)</p>
 
@@ -318,9 +324,47 @@ console.log(variants);
 
       </div>
       <div className="feature py-8 flex items-center flex-col gap-4 border-b-1 border-zinc-300">
-        <h2 className="text-black leading-none text-center text-4xl md:text-6xl">
-          For Mind,  <br /> Body and <br /> <span className="italic font-[roma] text-5xl md:text-7xl">Bold Moves</span>
-        </h2>
+
+      <SplitText
+            text=" For Mind,"
+            className="text-black leading-none text-center text-4xl md:text-6xl"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="words"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
+      <SplitText
+            text=" Body and "
+            className="text-black leading-none text-center text-4xl md:text-6xl"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="words"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
+      <SplitText
+            text="Bold Moves"
+            className="text-black leading-none text-center italic font-[roma] text-5xl md:text-7xl"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="words"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
+        
         
         <div className="px-10">
           <AutoCaraousel image={["/images/cr1.webp","/images/cr2.webp","/images/cr3.webp","/images/cr4.webp" ]}/>
@@ -329,9 +373,47 @@ console.log(variants);
       </div>
 
       <div className="feature py-8 flex items-center flex-col gap-4 border-b-1 border-zinc-300">
-        <h2 className="text-black leading-none text-center text-4xl md:text-6xl">
-          Make every <br /> move <br /> <span className="italic font-[roma] text-5xl md:text-7xl">count</span>
-        </h2>
+      <SplitText
+            text="Make every"
+            className="text-black leading-none text-center text-4xl md:text-6xl"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="words"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
+      <SplitText
+            text="move"
+            className="text-black leading-none text-center text-4xl md:text-6xl"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="words"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
+      <SplitText
+            text="count"
+            className="text-black leading-none text-center italic font-[roma] text-5xl md:text-7xl"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="words"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
+        
+      
         
         <div className="px-10">
           <AutoCaraousel image={["/images/cs1.webp","/images/cs2.webp","/images/cs3.webp","/images/cs4.webp" ]}/>
@@ -340,22 +422,84 @@ console.log(variants);
       </div>
 
       <div className="feature py-8 flex items-center flex-col gap-4 border-b-1 border-zinc-300">
-        <h2 className="text-black leading-none text-center text-4xl md:text-6xl">
-          In the <br /> <span className="italic font-[roma] text-5xl md:text-7xl">Box</span>
-        </h2>
+
+      <SplitText
+            text="In the"
+            className="text-black leading-none text-center text-4xl md:text-6xl"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="words"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
+      <SplitText
+            text="Box"
+            className="text-black leading-none text-center italic font-[roma] text-5xl md:text-7xl"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="words"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
+     
         
         <div className="px-10 md:px-12">
          <img className="md:w-[70%] mx-auto" src="/images/itb.webp" alt="" />
         </div>
 
-        <p className="text-xl font-semibold text-[#ed4c22] md:text-2xl md:p-10">Anarc smartwatch<br/>Charging cable<br/>USB to type C converter <br /> Welcome card</p>
+        <div className="w-1/2 lg:w-1/4">
+        <SplitText
+            text="Anarc smartwatch Charging cable USB to type C converter Welcome card"
+            className="text-xl font-semibold text-[#ed4c22] md:text-2xl md:p-10"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="lines"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
+        </div>
+       
       </div>
 
       <div className="feature py-8 flex items-center flex-col gap-4">
-        <h2 className="text-black leading-none text-center text-4xl md:text-6xl">
-          More for<br /> <span className="italic font-[roma] text-5xl md:text-7xl">You</span>
-
-        </h2>
+      <SplitText
+            text="More for"
+            className="text-black leading-none text-center text-4xl md:text-6xl"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="lines"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
+      <SplitText
+            text="You"
+            className="text-black leading-none text-center italic font-[roma] text-5xl md:text-7xl"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="lines"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="0px"
+            textAlign="center"
+          />
         
         <div className="px-10 py-6 w-[80%] lg:w-[50%] md:w-[60%] rounded-3xl bg-[#EDF0F6] grid grid-cols-2 gap-8"> 
           

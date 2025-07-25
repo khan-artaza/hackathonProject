@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom"
 
 const MobileBar = ({setToggle}) => {
   return (
- <div className="w-[110vw] fixed h-screen bg-[#ED4C22] left-[-25px] top-[-15px] flex justify-center items-start px-20 flex-col ">
+ <div className="w-[110vw] md:hidden fixed h-screen bg-[#ED4C22] left-[-25px] top-[-15px] flex justify-center items-start px-20 flex-col ">
     <i onClick={()=>setToggle(false)} className="ri-close-large-fill text-3xl absolute top-5 right-15"></i>
 
     <div className="text-3xl flex flex-col gap-10 text-start">
